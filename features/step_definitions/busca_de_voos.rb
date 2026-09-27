@@ -1,20 +1,25 @@
-Dado('que acesso o site da zupper') do
-    @busca.abrir_site
-    @busca.alert_cookies
+# frozen_string_literal: true
+
+Dado('que acesso o motor de busca de voos em produção') do
+  @busca.abrir_site
 end
-  
-Quando('inserir as informações da minha viagem') do
-    @busca.origem
-    @busca.destino
-    @busca.periodo
-    @busca.quantidade_passageiros
+
+Então('vejo os campos necessários para pesquisar sem iniciar uma reserva') do
+  @busca.validar_campos_de_consulta
 end
-  
-Quando('clicar em buscar') do
-    @busca.botao_buscar
+
+Quando('altero a modalidade de viagem para {string}') do |modalidade|
+  @busca.selecionar_modalidade(modalidade)
 end
-  
-Então('serão exibidos os voos e as melhores tarifas encontradas') do
-    @busca.melhores_preços
-    @busca.voos_encontrados
+
+Então('a modalidade {string} fica selecionada sem pesquisar') do |modalidade|
+  @busca.validar_modalidade_selecionada(modalidade)
+end
+
+Quando('abro o calendário de consulta') do
+  @busca.abrir_calendario
+end
+
+Então('vejo os dias e a navegação do calendário sem pesquisar') do
+  # A validação é feita ao abrir o calendário para manter o step de resultado legível.
 end

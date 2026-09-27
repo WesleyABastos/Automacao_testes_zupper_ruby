@@ -5,7 +5,7 @@ Funcionalidade: Busca de pacotes de viagem
     Quero realizar buscas de pacotes para minhas férias
     Para que possa escolher a melhor opção disponivel   
 
-    @BuscaHospedagens
+    @pendente @BuscaPacotes
     Cenário: Busca de passagens aéreas de ida e volta para 2 Adultos, 1 Criança
         Dado que acesso o site da zupper
         E clique no menu pacotes

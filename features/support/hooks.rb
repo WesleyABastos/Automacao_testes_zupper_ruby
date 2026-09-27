@@ -1,5 +1,15 @@
-Before do 
-    @busca = BuscaPage.new
-    page.current_window.resize_to(1440, 900)
-    # page.driver.browser.manage.window.maximize #Para maximizar a tela não importando a resolução.
+# frozen_string_literal: true
+
+require 'fileutils'
+
+Before do
+  @busca = BuscaPage.new
+end
+
+After do |scenario|
+  next unless scenario.failed?
+
+  FileUtils.mkdir_p('logs')
+  page.save_screenshot("logs/falha-#{scenario.name.gsub(/[^0-9A-Za-z]+/, '-')}.png")
+  page.save_page("logs/falha-#{scenario.name.gsub(/[^0-9A-Za-z]+/, '-')}.html")
 end

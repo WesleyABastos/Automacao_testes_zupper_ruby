@@ -37,7 +37,18 @@ Rodar o seguinte comando para atualização do bundler: ```gem install bundler``
 
 Com as gems instaladas, ainda dentro do diretório raiz do projeto (desafio_zupper_web), executar o comando abaixo para rodar o Cenário **Busca de passagens aéreas de ida e volta para 2 Adultos, 1 Criança e 1 Bebê** no terminal:
 
-```cucumber -t @BuscaVoos```
+```bundle exec cucumber --tags '@smoke'```
+
+Os cenários `@smoke @producao` são exclusivamente de consulta: validam os
+campos do motor de busca, as modalidades ida e volta/só ida/multidestinos e a
+abertura do calendário. Eles não enviam uma pesquisa, não selecionam oferta,
+não acessam checkout e não enviam pagamento. Foram derivados dos cenários de
+motor de busca do projeto `zupper-e2e-website` e atualizados para a interface
+atual de produção.
+
+Os cenários antigos de hospedagem, pacotes e busca foram preservados como
+`@pendente`, pois ainda não possuem steps implementados para a interface atual.
+Eles não são executados no perfil padrão.
 
 > Reports 📂
 

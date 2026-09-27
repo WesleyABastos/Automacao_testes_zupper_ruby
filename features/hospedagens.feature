@@ -5,7 +5,7 @@ Funcionalidade: Busca de hospedagens
     Quero realizar buscas de hospedagens
     Para que possa ficar enquanto desenvolver minhas atividades  
 
-    @BuscaHospedagens
+    @pendente @BuscaHospedagens
     Cenário: Busca de passagens aéreas de ida e volta para 2 Adultos, 1 Criança
         Dado que acesso o site da zupper
         E clique no menu hospedagens
@@ -13,4 +13,3 @@ Funcionalidade: Busca de hospedagens
         E clicar em buscar
         Então serão exibidos as melhores opções de hospedagens
 
-    
